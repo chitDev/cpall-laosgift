@@ -1,0 +1,36 @@
+# .github/workflows/deploy.yml
+
+name: Deploy Static Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      # ระบุชื่อ Branch หลักที่คุณใช้ (เช่น main, master)
+      - main 
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # สามารถใช้เวอร์ชันอื่นที่รองรับได้
+          
+      # 1. ติดตั้ง Dependencies และ Build
+      - name: Install dependencies and build project
+        run: |
+          npm install
+          npm run build
+
+      # 2. Deploy ไปยัง GitHub Pages
+      # Action นี้จะนำไฟล์ในโฟลเดอร์ 'dist' ไปสร้างเป็น Branch สำหรับ Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # โฟลเดอร์ที่ Vite สร้างไฟล์ออกมา
