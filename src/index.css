@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* White In Wonderland - Premium Theme */
+    --background: 210 40% 98%;
+    --foreground: 220 20% 20%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+    
+    /* 7-Eleven Green */
+    --primary: 152 100% 26%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* 7-Eleven Orange */
+    --secondary: 27 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* 7-Eleven Red */
+    --accent: 2 77% 49%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Ice Blue */
+    --ice: 200 80% 70%;
+    --ice-foreground: 200 80% 20%;
+    
+    /* Magical Purple */
+    --magic: 280 70% 60%;
+    --magic-foreground: 0 0% 100%;
+    
+    /* Festive Gold */
+    --gold: 45 100% 50%;
+    --gold-foreground: 45 100% 15%;
+    
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 15% 40%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 152 100% 26%;
+    
+    --radius: 1rem;
+    
+    /* Wheel Colors */
+    --wheel-gold: 45 100% 50%;
+    --wheel-glow: 152 100% 30%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Kanit', sans-serif;
+    min-height: 100vh;
+    background: 
+      radial-gradient(ellipse at top, hsl(200 80% 95%) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, hsl(280 60% 95%) 0%, transparent 40%),
+      radial-gradient(ellipse at bottom left, hsl(152 60% 95%) 0%, transparent 40%),
+      linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(220 30% 96%) 100%);
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(45 100% 50% / 0.4), 0 0 40px hsl(280 70% 60% / 0.3), 0 0 60px hsl(152 100% 26% / 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 30px hsl(45 100% 50% / 0.6), 0 0 50px hsl(280 70% 60% / 0.4), 0 0 80px hsl(152 100% 26% / 0.3);
+  }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes snowfall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes rainbow-border {
+  0% { border-color: hsl(152 100% 40%); }
+  25% { border-color: hsl(45 100% 50%); }
+  50% { border-color: hsl(27 100% 50%); }
+  75% { border-color: hsl(280 70% 60%); }
+  100% { border-color: hsl(152 100% 40%); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px hsl(45 100% 50% / 0.5)) drop-shadow(0 0 20px hsl(280 70% 60% / 0.3));
+  }
+  50% { 
+    filter: drop-shadow(0 0 20px hsl(45 100% 50% / 0.8)) drop-shadow(0 0 40px hsl(280 70% 60% / 0.5));
+  }
+}
+
+/* Firework burst animation */
+@keyframes firework-burst {
+  0% { transform: scale(0); opacity: 1; }
+  50% { opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes firework-trail {
+  0% { height: 0; opacity: 0; }
+  30% { opacity: 1; }
+  100% { height: 100px; opacity: 0; }
+}
+
+/* Rising particles */
+@keyframes rise-particle {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+/* Twinkling stars */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Glowing orb float */
+@keyframes orb-float {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  25% { transform: translateY(-20px) translateX(10px) scale(1.1); }
+  50% { transform: translateY(-10px) translateX(-5px) scale(0.95); }
+  75% { transform: translateY(-25px) translateX(-10px) scale(1.05); }
+}
+
+/* Rainbow wave */
+@keyframes rainbow-wave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Celebration pulse */
+@keyframes celebration-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 hsl(45 100% 50% / 0.4); }
+  50% { transform: scale(1.02); box-shadow: 0 0 40px 10px hsl(45 100% 50% / 0.2); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, hsl(45 100% 80% / 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-rainbow-border {
+  animation: rainbow-border 4s linear infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.text-glow {
+  text-shadow: 
+    0 0 10px hsl(45 100% 50% / 0.6),
+    0 0 20px hsl(45 100% 50% / 0.4),
+    0 0 40px hsl(280 70% 60% / 0.3);
+}
+
+.text-rainbow {
+  background: linear-gradient(90deg, hsl(152 100% 35%), hsl(45 100% 50%), hsl(27 100% 50%), hsl(280 70% 60%), hsl(200 80% 60%));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Snowflake background */
+.snowflakes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: snowfall linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 5px hsl(200 80% 80%));
+}
+
+/* Glass effect for white theme */
+.glass {
+  background: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(220 30% 98% / 0.8));
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(220 15% 90% / 0.8);
+  box-shadow: 
+    0 8px 32px hsl(220 20% 50% / 0.1),
+    inset 0 1px 0 hsl(0 0% 100% / 0.6);
+}
+
+/* Premium card effect */
+.premium-card {
+  background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 30% 98%) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, hsl(152 100% 40%), hsl(45 100% 50%), hsl(280 70% 60%));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Sparkle background */
+.sparkle-bg {
+  position: relative;
+}
+
+.sparkle-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 30%, hsl(45 100% 70% / 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, hsl(280 70% 70% / 0.3) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, hsl(200 80% 70% / 0.2) 2px, transparent 2px);
+  background-size: 100px 100px, 80px 80px, 120px 120px;
+  animation: sparkle 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Magical gradient button */
+.magic-button {
+  background: linear-gradient(135deg, hsl(152 100% 35%) 0%, hsl(152 100% 26%) 50%, hsl(45 100% 45%) 100%);
+  background-size: 200% 200%;
+  transition: all 0.3s ease;
+}
+
+.magic-button:hover {
+  background-position: 100% 100%;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px hsl(152 100% 26% / 0.3);
+}
+
+/* === NEW YEAR CELEBRATION EFFECTS === */
+
+/* Fireworks container */
+.fireworks-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: rise-particle 3s ease-out infinite;
+}
+
+.firework::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  animation: firework-burst 1s ease-out infinite;
+  animation-delay: inherit;
+}
+
+/* Twinkling stars background */
+.stars-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  font-size: 0.8rem;
+  animation: twinkle ease-in-out infinite;
+  color: hsl(45 100% 70%);
+  text-shadow: 0 0 10px hsl(45 100% 50%), 0 0 20px hsl(45 100% 50% / 0.5);
+}
+
+/* Floating orbs */
+.orbs-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  animation: orb-float ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.orb-green {
+  background: radial-gradient(circle, hsl(152 100% 50% / 0.4) 0%, transparent 70%);
+  box-shadow: 0 0 30px hsl(152 100% 40% / 0.3);
+}
+
+.orb-orange {
+  background: radial-gradient(circle, hsl(27 100% 60% / 0.4) 0%, transparent 70%);
+  box-shadow: 0 0 30px hsl(27 100% 50% / 0.3);
+}
+
+.orb-gold {
+  background: radial-gradient(circle, hsl(45 100% 60% / 0.5) 0%, transparent 70%);
+  box-shadow: 0 0 30px hsl(45 100% 50% / 0.4);
+}
+
+.orb-purple {
+  background: radial-gradient(circle, hsl(280 70% 60% / 0.3) 0%, transparent 70%);
+  box-shadow: 0 0 30px hsl(280 70% 50% / 0.3);
+}
+
+/* Rising particles */
+.particles-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.particle {
+  position: absolute;
+  bottom: -20px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: rise-particle linear infinite;
+}
+
+/* Rainbow gradient text - enhanced */
+.text-celebration {
+  background: linear-gradient(
+    90deg, 
+    hsl(152 100% 40%), 
+    hsl(45 100% 55%), 
+    hsl(27 100% 55%), 
+    hsl(2 77% 55%), 
+    hsl(280 70% 60%),
+    hsl(152 100% 40%)
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-wave 4s linear infinite;
+}
+
+/* Celebration border */
+.celebration-border {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.celebration-border::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    90deg,
+    hsl(152 100% 40%),
+    hsl(45 100% 50%),
+    hsl(27 100% 55%),
+    hsl(280 70% 55%),
+    hsl(152 100% 40%)
+  );
+  background-size: 300% 100%;
+  animation: rainbow-wave 3s linear infinite;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Glowing text effect */
+.text-glow-celebration {
+  text-shadow: 
+    0 0 10px hsl(45 100% 60% / 0.8),
+    0 0 20px hsl(45 100% 50% / 0.6),
+    0 0 40px hsl(27 100% 50% / 0.4),
+    0 0 60px hsl(152 100% 40% / 0.3);
+}
+
+/* Animated gradient background */
+.animated-gradient-bg {
+  background: linear-gradient(
+    -45deg,
+    hsl(210 40% 98%),
+    hsl(200 80% 95%),
+    hsl(280 60% 97%),
+    hsl(152 60% 96%),
+    hsl(45 100% 97%)
+  );
+  background-size: 400% 400%;
+  animation: rainbow-wave 15s ease infinite;
+}
+
+/* Celebration pulse for important elements */
+.animate-celebration-pulse {
+  animation: celebration-pulse 2s ease-in-out infinite;
+}
